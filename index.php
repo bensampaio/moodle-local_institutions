@@ -72,8 +72,8 @@ else {
 						echo '<p class="phone"><b>'.get_string('phone').'</b>: '.$institution->phone.'</p>';
 					}
 
-					//Institution Logo
-					echo html_writer::link(new moodle_url('view.php', $url_options), '<img src="'.$institution->logo.'" alt="'.$institution->shortname.'"/>', array('class' => 'logo'));
+					//Institution Icon
+					echo html_writer::link(new moodle_url('view.php', $url_options), '<img src="'.$institution->icon.'" alt="'.$institution->shortname.'"/>', array('class' => 'icon'));
 
 				echo html_writer::end_tag('div');
 

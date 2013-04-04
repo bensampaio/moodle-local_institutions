@@ -11,6 +11,10 @@ defined('MOODLE_INTERNAL') || die;
 
 define('INSTITUTIONS_TABLE', 'local_institutions');
 
+// Add Link to Navigation Block
+global $PAGE;
+$PAGE->navigation->add(get_string('institutions', 'local_institutions'), new moodle_url('/local/institutions/index.php'));
+
 /**
  * Verify if institutions tables exists.
  * @return bool

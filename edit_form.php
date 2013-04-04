@@ -44,10 +44,10 @@ class institution_edit_form extends moodleform {
         $mform->addRule('url', get_string('missingurl'), 'required', null, 'client');
         $mform->setType('url', PARAM_MULTILANG);
 
-		//Logo
-        $mform->addElement('text', 'logo', get_string('field-logo', 'local_institutions'), 'maxlength="2082" size="100"');
-        $mform->addRule('logo', get_string('missingurl'), 'required', null, 'client');
-        $mform->setType('logo', PARAM_MULTILANG);
+		//Icon
+        $mform->addElement('text', 'icon', get_string('field-icon', 'local_institutions'), 'maxlength="2082" size="100"');
+        $mform->addRule('icon', get_string('missingurl'), 'required', null, 'client');
+        $mform->setType('icon', PARAM_MULTILANG);
 
 		//Address
         $mform->addElement('text','address', get_string('field-address', 'local_institutions'),'maxlength="254"  size="100"');

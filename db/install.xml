@@ -12,8 +12,8 @@
         <FIELD NAME="description" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false" PREVIOUS="shortname" NEXT="address"/>
         <FIELD NAME="address" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" PREVIOUS="description" NEXT="phone"/>
         <FIELD NAME="phone" TYPE="char" LENGTH="50" NOTNULL="false" SEQUENCE="false" PREVIOUS="address" NEXT="url"/>
-        <FIELD NAME="url" TYPE="char" LENGTH="1333" NOTNULL="true" SEQUENCE="false" PREVIOUS="phone" NEXT="logo"/>
-        <FIELD NAME="logo" TYPE="char" LENGTH="1333" NOTNULL="true" SEQUENCE="false" PREVIOUS="url"/>
+        <FIELD NAME="url" TYPE="char" LENGTH="1333" NOTNULL="true" SEQUENCE="false" PREVIOUS="phone" NEXT="icon"/>
+        <FIELD NAME="icon" TYPE="char" LENGTH="1333" NOTNULL="true" SEQUENCE="false" PREVIOUS="url"/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>

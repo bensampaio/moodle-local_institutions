@@ -17,7 +17,7 @@ $strinstitutions = get_string('institutions', 'local_institutions');
 $strempty = get_string('no');
 
 $PAGE->set_pagelayout('embedded');
-$PAGE->set_url('/local/institutions/edit.php');
+$PAGE->set_url('/local/institutions/view.php');
 $PAGE->set_context(context_system::instance());
 
 if(!local_institutions_table_exists()) {	//Table not exists

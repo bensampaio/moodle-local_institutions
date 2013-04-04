@@ -1,0 +1,77 @@
+.institutionbox {
+	width: 100%;
+	padding-top: 1em;
+	margin-top: 15px;
+	border-top: 1px solid #DDD;
+}
+
+.institutionbox .info {
+	float: left;
+	width: 45%;
+	text-align:left;
+}
+
+.institutionbox .summary {
+	float: left;
+	width: 50%;
+	margin-top: 1.2em;
+	text-align:justify;
+}
+
+.institutionbox .options {
+	float: right;
+	width: 5%;
+	text-align:justify;
+}
+
+.institutionbox .name {
+	font-size: 1.2em;
+	margin-top: 0;
+	margin-bottom: 1em;
+}
+
+.institutionbox .address,
+.institutionbox .phone,
+.institutionbox .icon {
+	margin-left: 10px;
+}
+
+.institutionbox .icon {
+	display:block;
+}
+
+.institutionbox .icon img {
+	max-width: 90%;
+	max-height: 100px;
+}
+
+.institutionbox .summary p {
+	margin: 0;
+}
+
+.institutionbox .options a {
+	margin-bottom: 10px;
+	text-align: center;
+	display: block;
+}
+
+.institutionbox .options a img {
+	width: 16px;
+	height: 16px;
+}
+
+#page-local-institutions-view {
+	overflow: hidden;
+}
+
+#page-local-institutions-view,
+#page-local-institutions-view .region-content,
+#page-local-institutions-view iframe {
+	height: 100%;
+}
+
+#page-local-institutions-view iframe {
+	width: 100%;
+	margin: 0 auto;
+	border: 0;
+}
