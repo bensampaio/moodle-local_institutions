@@ -1,17 +1,15 @@
-INSTITUTIONS - MOODLE LOCAL
+# INSTITUTIONS - MOODLE LOCAL
 
 **IMPORTANT**: I am no longer maintaining this plugin. However if you require changes to it you can submit a Merge Request and I will gladly have a look into it.
 
-DESCRIPTION
------------
+## DESCRIPTION
 
 This local plugin introduces the intitutions concept into Moodle. It allows the Moodle administrator to add, edit, or remove intitutional pages (university page, school page, etc) that can then be accessed by any user without leaving Moodle.
 
 I recommend you use this plugin with Cubic, a theme for Moodle that I also created (https://moodle.org/plugins/view.php?plugin=theme_cubic).
 
 
-CONTENTS ORGANISATION
----------------------
+## CONTENTS ORGANISATION
 
 	FOLDERS:
 	- db: contains the "install.xml" file with institutions table structure;
