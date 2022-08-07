@@ -59,7 +59,7 @@ else {
 
 					//Institution Name
 				    echo html_writer::start_tag('h3', array('class'=>'name'));
-						echo html_writer::link(new moodle_url('view.php', $url_options), $institution->fullname);
+					echo html_writer::link(new moodle_url('view.php', $url_options), $institution->fullname);
 					echo html_writer::end_tag('h3');
 
 					//Institution Address
@@ -73,7 +73,7 @@ else {
 					}
 
 					//Institution Icon
-					echo html_writer::link(new moodle_url('view.php', $url_options), '<img src="'.$institution->icon.'" style="max-height:100px; max-width:200px;" alt="'.$institution->shortname.'"/>', array('class' => ''));
+					echo html_writer::link($institution->url, '<img src="'.$institution->icon.'" style="max-height:100px; max-width:200px;" alt="'.$institution->shortname.'"/>', array('class' => '',"target"=>"_blank"));
 
 				echo html_writer::end_tag('div');
 

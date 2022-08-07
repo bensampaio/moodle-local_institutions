@@ -2,7 +2,8 @@
 
 /**
  * A page to display an institution.
- * @copyright 2013 Bruno Sampaio
+ * @copyright 2022 Esdras Caçeb
+ * TODO exibir instituição
  */
 
 require_once('../../config.php');
@@ -16,7 +17,6 @@ $strinstitution = get_string('institution', 'local_institutions');
 $strinstitutions = get_string('institutions', 'local_institutions');
 $strempty = get_string('no');
 
-$PAGE->set_pagelayout('embedded');
 $PAGE->set_url('/local/institutions/view.php');
 $PAGE->set_context(context_system::instance());
 
@@ -38,12 +38,42 @@ else {
 
 		//now the page contents
 		echo $OUTPUT->header();
-	
-		echo '<script src="effects.js"></script>';
-		
-		echo '<iframe src="'.$institution->url.'" frameborder="0" allowtransparency="true">';
-			echo get_string('error-iframe', 'local_institutions');
-		echo '</iframe>';
+		echo html_writer::start_tag('div', array('class'=>'institutionbox clearfix'));
+
+		//Institution Name
+		echo html_writer::start_tag('h3', array('class'=>'name'));
+		echo html_writer::link($institution->url, $institution->fullname,array("target"=>"_blank"));
+		echo html_writer::end_tag('h3');
+
+		//Institution Address
+		if(!empty($institution->address)) {
+			echo '<p class="address"><b>'.get_string('address').'</b>: '.$institution->address.'</p>';
+		}
+
+		//Institution Phone
+		if(!empty($institution->phone)) {
+			echo '<p class="phone"><b>'.get_string('phone').'</b>: '.$institution->phone.'</p>';
+		}
+
+		//Institution Icon
+		echo html_writer::link($institution->url, '<img src="'.$institution->icon.'" style="max-height:100px; max-width:200px;" alt="'.$institution->shortname.'"/>', array('class' => '',"target"=>"_blank"));
+
+		echo html_writer::end_tag('div');
+		if(is_siteadmin()) {
+			echo html_writer::start_tag('div', array('class'=>'options'));
+
+				//Edit
+				$options = array('title' => get_string('edit'));
+				$image = '<img src="'.$OUTPUT->pix_url('t/edit').'" alt="'.$options['title'].'" />';
+				echo html_writer::link(new moodle_url('edit.php', $url_options), $image, $options);
+
+				//Delete
+				$options = array('title' => get_string('delete'));
+				$image = '<img src="'.$OUTPUT->pix_url('t/delete').'" alt="'.$options['title'].'" />';
+				echo html_writer::link(new moodle_url('delete.php', $url_options), $image, $options);
+
+			echo html_writer::end_tag('div');
+		}
 		
 	}
 	else {
