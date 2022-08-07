@@ -16,7 +16,7 @@ $strinstitution = get_string('institution', 'local_institutions');
 $strinstitutions = get_string('institutions', 'local_institutions');
 $strempty = get_string('no');
 
-//$PAGE->set_pagelayout('embedded');
+$PAGE->set_pagelayout('embedded');
 $PAGE->set_url('/local/institutions/view.php');
 $PAGE->set_context(context_system::instance());
 
