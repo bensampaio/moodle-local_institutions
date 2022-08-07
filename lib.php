@@ -87,7 +87,7 @@ function local_institutions_create($data) {
 	//check if the shortname already exist
     if (!empty($data->shortname)) {
         if ($DB->record_exists(INSTITUTIONS_TABLE, array('shortname' => $data->shortname))) {
-            throw new moodle_exception('shortnametaken');
+            throw new moodle_exception('shortnametaken',"local_institutions");
         }
     }
 
@@ -96,7 +96,7 @@ function local_institutions_create($data) {
 	
 	//add_to_log(SITEID, INSTITUTIONS_TABLE, 'new', 'view.php?id='.$id, $institution->fullname.' (ID '.$id.')');
 	
-	$event = \local_insitutions\event\new::create(array(
+	$event = \local_institutions\event\institution_created::create(array(
 		'objectid' => $institution->id,
 		'context' => context_system::instance(),
 	));
@@ -122,7 +122,7 @@ function local_institutions_update($data) {
 
 	$institution = $DB->get_record(INSTITUTIONS_TABLE, array('id'=>$data->id));
 	
-	$event = \local_insitutions\event\new::update(array(
+	$event = \local_institutions\event\institution_updated::create(array(
 		'objectid' => $institution->id,
 		'context' => context_system::instance(),
 	));
@@ -149,7 +149,7 @@ function local_institutions_delete($id) {
 	}
 	else {
 		
-		$event = \local_insitutions\event\new::update(array(
+		$event = \local_institutions\event\institution_deleted::create(array(
 			'objectid' => $institution->id,
 			'context' => context_system::instance(),
 		));

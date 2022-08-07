@@ -73,7 +73,7 @@ else {
 					}
 
 					//Institution Icon
-					echo html_writer::link(new moodle_url('view.php', $url_options), '<img src="'.$institution->icon.'" alt="'.$institution->shortname.'"/>', array('class' => 'icon'));
+					echo html_writer::link(new moodle_url('view.php', $url_options), '<img src="'.$institution->icon.'" style="max-height:100px; max-width:200px;" alt="'.$institution->shortname.'"/>', array('class' => ''));
 
 				echo html_writer::end_tag('div');
 
