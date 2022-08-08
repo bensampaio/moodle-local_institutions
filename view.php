@@ -58,6 +58,13 @@ else {
 		//Institution Icon
 		echo html_writer::link($institution->url, '<img src="'.$institution->icon.'" style="max-height:100px; max-width:200px;" alt="'.$institution->shortname.'"/>', array('class' => '',"target"=>"_blank"));
 
+		//Institution Description
+		echo html_writer::start_tag('div', array('class'=>'summary'));
+		echo '<p>'.$institution->description.'</p>';
+		echo html_writer::end_tag('div');
+
+
+
 		echo html_writer::end_tag('div');
 		if(is_siteadmin()) {
 			echo html_writer::start_tag('div', array('class'=>'options'));

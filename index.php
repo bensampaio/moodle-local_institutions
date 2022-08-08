@@ -78,10 +78,11 @@ else {
 				echo html_writer::end_tag('div');
 
 				//Institution Description
+				/*
 				echo html_writer::start_tag('div', array('class'=>'summary'));
 					echo '<p>'.$institution->description.'</p>';
 				echo html_writer::end_tag('div');
-
+			    */
 				//Institution Options
 				if($can_edit) {
 					echo html_writer::start_tag('div', array('class'=>'options'));
