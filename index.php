@@ -63,6 +63,7 @@ else {
 					echo html_writer::end_tag('h3');
 
 					//Institution Address
+					/*
 					if(!empty($institution->address)) {
 						echo '<p class="address"><b>'.get_string('address').'</b>: '.$institution->address.'</p>';
 					}
@@ -71,7 +72,7 @@ else {
 					if(!empty($institution->phone)) {
 						echo '<p class="phone"><b>'.get_string('phone').'</b>: '.$institution->phone.'</p>';
 					}
-
+					*/
 					//Institution Icon
 					echo html_writer::link($institution->url, '<img src="'.$institution->icon.'" style="max-height:100px; max-width:200px;" alt="'.$institution->shortname.'"/>', array('class' => '',"target"=>"_blank"));
 
