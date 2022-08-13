@@ -5,6 +5,7 @@ defined('MOODLE_INTERNAL') || die();
 
 class institution_updated extends \core\event\base {
     protected function init() {
+        global $CFG;
         $this->data['crud'] = 'u'; // c(reate), r(ead), u(pdate), d(elete)
         $this->data['edulevel'] = self::LEVEL_OTHER;
         $this->data['objecttable'] = "local_institutions";
