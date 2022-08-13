@@ -90,12 +90,13 @@ else {
 
 						//Edit
 						$options = array('title' => get_string('edit'));
-						$image = '<img src="'.$OUTPUT->pix_url('t/edit').'" alt="'.$options['title'].'" />';
+						$image = $OUTPUT->pix_icon('t/edit','edit');
 						echo html_writer::link(new moodle_url('edit.php', $url_options), $image, $options);
 
 						//Delete
 						$options = array('title' => get_string('delete'));
-						$image = '<img src="'.$OUTPUT->pix_url('t/delete').'" alt="'.$options['title'].'" />';
+						$image = $OUTPUT->pix_icon('t/delete','delete');
+	
 						echo html_writer::link(new moodle_url('delete.php', $url_options), $image, $options);
 
 					echo html_writer::end_tag('div');

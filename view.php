@@ -78,7 +78,8 @@ else {
 
 				//Delete
 				$options = array('title' => get_string('delete'));
-				$image = '<img src="'.$OUTPUT->pix_url('t/delete').'" alt="'.$options['title'].'" />';
+				$image = $OUTPUT->pix_icon('t/delete','delete');
+
 				echo html_writer::link(new moodle_url('delete.php', $url_options), $image, $options);
 
 			echo html_writer::end_tag('div');
