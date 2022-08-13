@@ -70,10 +70,10 @@ else {
 		echo html_writer::end_tag('div');
 		if(is_siteadmin()) {
 			echo html_writer::start_tag('div', array('class'=>'options'));
-
+				$url_options = array('id' => $institution->id);
 				//Edit
 				$options = array('title' => get_string('edit'));
-				$image = '<img src="'.$OUTPUT->pix_url('t/edit').'" alt="'.$options['title'].'" />';
+				$image = $OUTPUT->pix_icon('t/edit','edit');
 				echo html_writer::link(new moodle_url('edit.php', $url_options), $image, $options);
 
 				//Delete
