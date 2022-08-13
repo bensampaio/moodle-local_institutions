@@ -15,11 +15,11 @@ $stradministration = get_string("administration");
 $strdelete = get_string("delete");
 $title = get_string('delete-institution', 'local_institutions');
 
-$sitecontext = get_context_instance(CONTEXT_SYSTEM);
+$sitecontext = context_system::instance();
 $id = required_param('id', PARAM_INT);	// institution id
 
 $PAGE->set_url('/local/institutions/delete.php', array('id' => $id));
-$PAGE->set_context(context_system::instance());
+$PAGE->set_context($sitecontext);
 
 $site = get_site();
 

@@ -24,7 +24,7 @@ $PAGE->set_pagelayout('admin');
 $PAGE->set_url('/local/institutions/edit.php');
 $PAGE->set_context(context_system::instance());
 
-$sitecontext = get_context_instance(CONTEXT_SYSTEM);
+$sitecontext = context_system::instance();
 if(has_capability('moodle/site:config', $sitecontext)) {
 	
 	if(!local_institutions_table_exists()) {	//Table not exists
