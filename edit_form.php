@@ -20,7 +20,7 @@ class institution_edit_form extends moodleform {
         $mform = $this->_form;
 
         $institution = $this->_customdata['institution']; // this contains the data of this form
-        $context   = get_context_instance(CONTEXT_SYSTEM);
+        $context   =  context_system::instance();
 
         $this->institution  = $institution;
         $this->context = $context;

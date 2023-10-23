@@ -25,3 +25,5 @@ I recommend you use this plugin with Cubic, a theme for Moodle that I also creat
 	- error.php: institutions error page;
 	- version.php: plugin version information.
 
+## OBS
+	Adapted to work in versions 4 and 3.X

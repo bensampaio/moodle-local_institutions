@@ -40,3 +40,9 @@ $string['error-iframe'] = 'Your browser doesn\'t support the HTML iframe element
 $string['error-institution'] = 'Institution Error';
 $string['error-noid'] = 'Institution id must be specified.';
 $string['error-permissions'] = 'You haven\'t enough permissions to perform this action.';
+$string['shortnametaken'] = 'Short name is already used for another institution';
+
+//events
+$string['eventinstitutioncreated'] = 'Institution was created';
+$string['eventinstitutionupdated'] = 'Institution was updated';
+$string['eventinstitutiondeleted'] = 'Institution was deleted';

@@ -59,10 +59,11 @@ else {
 
 					//Institution Name
 				    echo html_writer::start_tag('h3', array('class'=>'name'));
-						echo html_writer::link(new moodle_url('view.php', $url_options), $institution->fullname);
+					echo html_writer::link(new moodle_url('view.php', $url_options), $institution->fullname);
 					echo html_writer::end_tag('h3');
 
 					//Institution Address
+					/*
 					if(!empty($institution->address)) {
 						echo '<p class="address"><b>'.get_string('address').'</b>: '.$institution->address.'</p>';
 					}
@@ -71,29 +72,31 @@ else {
 					if(!empty($institution->phone)) {
 						echo '<p class="phone"><b>'.get_string('phone').'</b>: '.$institution->phone.'</p>';
 					}
-
+					*/
 					//Institution Icon
-					echo html_writer::link(new moodle_url('view.php', $url_options), '<img src="'.$institution->icon.'" alt="'.$institution->shortname.'"/>', array('class' => 'icon'));
+					echo html_writer::link($institution->url, '<img src="'.$institution->icon.'" style="max-height:100px; max-width:200px;" alt="'.$institution->shortname.'"/>', array('class' => '',"target"=>"_blank"));
 
 				echo html_writer::end_tag('div');
 
 				//Institution Description
+				/*
 				echo html_writer::start_tag('div', array('class'=>'summary'));
 					echo '<p>'.$institution->description.'</p>';
 				echo html_writer::end_tag('div');
-
+			    */
 				//Institution Options
 				if($can_edit) {
 					echo html_writer::start_tag('div', array('class'=>'options'));
 
 						//Edit
 						$options = array('title' => get_string('edit'));
-						$image = '<img src="'.$OUTPUT->pix_url('t/edit').'" alt="'.$options['title'].'" />';
+						$image = $OUTPUT->pix_icon('t/edit','edit');
 						echo html_writer::link(new moodle_url('edit.php', $url_options), $image, $options);
 
 						//Delete
 						$options = array('title' => get_string('delete'));
-						$image = '<img src="'.$OUTPUT->pix_url('t/delete').'" alt="'.$options['title'].'" />';
+						$image = $OUTPUT->pix_icon('t/delete','delete');
+	
 						echo html_writer::link(new moodle_url('delete.php', $url_options), $image, $options);
 
 					echo html_writer::end_tag('div');

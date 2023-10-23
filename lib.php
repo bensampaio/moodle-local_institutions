@@ -87,15 +87,21 @@ function local_institutions_create($data) {
 	//check if the shortname already exist
     if (!empty($data->shortname)) {
         if ($DB->record_exists(INSTITUTIONS_TABLE, array('shortname' => $data->shortname))) {
-            throw new moodle_exception('shortnametaken');
+            throw new moodle_exception('shortnametaken',"local_institutions");
         }
     }
 
 	$id = $DB->insert_record(INSTITUTIONS_TABLE, $data);
 	$institution = $DB->get_record(INSTITUTIONS_TABLE, array('id'=>$id));
 	
-	add_to_log(SITEID, INSTITUTIONS_TABLE, 'new', 'view.php?id='.$id, $institution->fullname.' (ID '.$id.')');
+	//add_to_log(SITEID, INSTITUTIONS_TABLE, 'new', 'view.php?id='.$id, $institution->fullname.' (ID '.$id.')');
 	
+	$event = \local_institutions\event\institution_created::create(array(
+		'objectid' => $institution->id,
+		'context' => context_system::instance(),
+	));
+	$event->trigger();
+
 	return $institution;
 }
 
@@ -116,7 +122,13 @@ function local_institutions_update($data) {
 
 	$institution = $DB->get_record(INSTITUTIONS_TABLE, array('id'=>$data->id));
 	
-	add_to_log($institution->id, INSTITUTIONS_TABLE, "update", "edit.php?id=$institution->id", $institution->id);
+	$event = \local_institutions\event\institution_updated::create(array(
+		'objectid' => $institution->id,
+		'context' => context_system::instance(),
+	));
+	$event->trigger();
+
+	//add_to_log($institution->id, INSTITUTIONS_TABLE, "update", "edit.php?id=$institution->id", $institution->id);
 }
 
 /**
@@ -136,10 +148,20 @@ function local_institutions_delete($id) {
 		return false;
 	}
 	else {
+		
+		$event = \local_institutions\event\institution_deleted::create(array(
+			'objectid' => $institution->id,
+			'context' => context_system::instance(),
+		));
+
+		$event->add_record_snapshot(INSTITUTIONS_TABLE, $institution);
+
+		$event->trigger();
+
+		//add_to_log(SITEID, INSTITUTIONS_TABLE, "delete", "view.php?id=$institution->id", "$institution->fullname (ID $institution->id)");
+		
 		$DB->delete_records(INSTITUTIONS_TABLE, array('id' => $id));
-		
-		add_to_log(SITEID, INSTITUTIONS_TABLE, "delete", "view.php?id=$institution->id", "$institution->fullname (ID $institution->id)");
-		
+
 		return true;
 	}
 }
